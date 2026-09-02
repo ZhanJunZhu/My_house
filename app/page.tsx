@@ -8,13 +8,13 @@ export default function Home() {
         {/* 個人介紹與標題 */}
         <div className="space-y-3">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">
-            你好，我是 朱展均
+            你好，我是朱展均
             <span className="block text-blue-500 text-3xl sm:text-4xl mt-2 font-semibold">
               Zhan Jun Zhu
             </span>
           </h1>
           <p className="text-lg text-neutral-400">
-            工程師，創新就是解決問題。
+            創新就是解決問題
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function Home() {
         {/* 專案 / 導航卡片區塊 */}
         <div className="grid gap-4 sm:grid-cols-2 pt-4">
           <Link
-            href="/projects"
+            href="/project-showcase"
             className="group p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-700 transition duration-200"
           >
             <h2 className="text-lg font-semibold text-white mb-1 group-hover:text-blue-400 transition">
@@ -57,7 +57,7 @@ export default function Home() {
           </Link>
 
           <Link
-            href="/about"
+            href="/about-me"
             className="group p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-700 transition duration-200 sm:col-span-2"
           >
             <h2 className="text-lg font-semibold text-white mb-1 group-hover:text-blue-400 transition">
