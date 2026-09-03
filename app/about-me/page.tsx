@@ -23,25 +23,24 @@ interface Education {
 const experiences: Experience[] = [
   {
     id: 1,
-    role: "製程工程師 (Process Engineer)",
-    organization: "半導體製造業 (Semiconductor Manufacturing)",
-    period: "現職",
-    description: "專注於先進微影與光罩製程監控、良率異常分析與製程自動化優化。",
+    role: "EUV mask Process Engineer",
+    organization: "TSMC",
+    period: "Current Position",
+    description: "EUV mask defect inspection",
     points: [
-      "運用 SQL 與內部系統整合高維度製程資料，建立即時監控指標",
-      "透過資料視覺化與自動化流程優化例行工程分析效率",
-      "跨單位協同排除機台與製程缺陷，確保生產線穩定度與良率達標",
+      "Streamlined routine engineering analysis efficiency through data visualization in Power BI",
+      "Integrated process data across internal systems using SQL to establish real-time monitoring indicators",
     ],
   },
   {
     id: 2,
-    role: "製程工程師 (Process Engineer)",
-    organization: "高科技與電子零組件製造 (Tech & Component Manufacturing)",
-    period: "前期經歷",
-    description: "負責表面處理與電鍍製程條件調控、設備維護及良率改善專案。",
+    role: "MLCC Curing / Plating Process Engineer)",
+    organization: "YAEGO",
+    period: "Previous Experience",
+    description: "MLCC surface treatment。",
     points: [
-      "主導製程參數 DOE 實驗設計，優化鍍層均勻度與信賴性",
-      "建立標準作業流程（SOP）並導入製程異常即時預警機制",
+      "Established SOP and implemented OCAP for process excursions",
+      "Optimized process parameters using DOE to enhance process window and yield",
     ],
   },
 ];
@@ -49,34 +48,34 @@ const experiences: Experience[] = [
 const educations: Education[] = [
   {
     id: 1,
-    degree: "化學工程 碩士 (M.S. in Chemical Engineering)",
-    school: "國立臺灣科技大學 (Taiwan Tech)",
-    major: "計算化學與分子模擬 (Computational Chemistry)",
-    period: "研究所",
-    details: "專注於第一原理密度泛函理論（DFT）計算、材料表面反應與氣體感測機制分析。",
+    degree: "Master degree in Chemical Engineering",
+    school: "National Taiwan University of Science and Technology (NTUST)",
+    major: "Chemical Engineering",
+    period: "Graduate School",
+    details: "Focused on first-principles Density Functional Theory (DFT) calculations to analyze material surface reactions and gas-sensing mechanisms",
   },
   {
     id: 2,
-    degree: "化學工程 學士 (B.S. in Chemical Engineering)",
-    school: "國立臺灣科技大學 (Taiwan Tech)",
-    major: "化學工程系",
-    period: "大學部",
-    details: "紮實的化工單元操作、傳送現象與材料化學基礎工程訓練。",
+    degree: "Bachelor degree in Chemical Engineering",
+    school: "National Taiwan University of Science and Technology (NTUST)",
+    major: "Chemical Engineering",
+    period: "Undergraduate",
+    details: "Solid engineering foundation in chemical unit operations, transport phenomena, and materials chemistry。",
   },
 ];
 
 const skillCategories = [
   {
-    category: "Data & Automation",
-    skills: ["SQL", "Power BI", "Python / Bash", "PowerShell", "Process Analytics"],
+    category: "Data Automation",
+    skills: ["SQL", "Power BI", "Python", "Linux"],
   },
   {
-    category: "Computational & Engineering",
-    skills: ["DFT Calculations", "VASP", "ADF / Gaussian", "HPC Linux Environment"],
+    category: "Computational Chemistry",
+    skills: ["VASP", "ADF", "Gaussian", "Siesta", "Conquest"],
   },
   {
     category: "Domain Expertise",
-    skills: ["Photolithography Mask Process", "Electroplating", "DOE Optimization", "Yield Analysis"],
+    skills: ["EUV Mask", "MLCC Plating", "MLCC Curing"],
   },
 ];
 
@@ -94,7 +93,7 @@ export default function AboutPage() {
 
         <h1 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight">About Me</h1>
         <p className="text-neutral-400 text-base leading-relaxed">
-          工程師 × 自主學習者。相信「創新就是為了解決真實問題」，熱衷於結合工程領域專業、計算模擬與資料分析工具，探索最佳化解決方案。
+          解決問題就是創新最好的定義
         </p>
       </div>
 
@@ -192,8 +191,7 @@ export default function AboutPage() {
       {/* 底部行動呼籲 / 快速跳轉 */}
       <section className="p-6 rounded-2xl border border-neutral-800/80 bg-neutral-900/20 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">
-          <h3 className="text-sm font-semibold text-neutral-200">想了解更多學術著作或專案內容？</h3>
-          <p className="text-xs text-neutral-400 mt-0.5">歡迎造訪我的研究成果發表或專案頁面。</p>
+          <h3 className="text-sm font-semibold text-neutral-200">了解更多學術著作與作品</h3>
         </div>
         <div className="flex gap-3 text-xs font-medium">
           <Link
