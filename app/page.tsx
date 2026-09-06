@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 
-// 社群與賣場連結清單
 const socialLinks = [
   {
     name: "Facebook",
@@ -51,45 +51,92 @@ const socialLinks = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col items-center justify-center px-6 py-16">
-      <div className="max-w-2xl w-full space-y-8">
-        
-        {/* 個人介紹與標題 */}
-        <div className="space-y-3">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-white">
-            你好，我是朱展均
-            <span className="block text-blue-500 text-3xl sm:text-4xl mt-2 font-semibold">
-              Zhan Jun Zhu
-            </span>
-          </h1>
-          <p className="text-lg text-neutral-400">
-            創新就是解決問題
-          </p>
+    <main className="relative min-h-screen bg-neutral-950 text-neutral-100 flex items-center justify-center px-6 py-16 overflow-hidden">
+      {/* 背景微光 */}
+      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-blue-600/10 blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue-500/10 blur-[130px] pointer-events-none rounded-full" />
+
+      {/* 3 欄式水平排列：資訊 (4) | 照片 (4) | 導航卡片 (4) */}
+      <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        {/* 左欄：個人資訊 */}
+        <div className="md:col-span-4 space-y-6">
+          <div className="space-y-2">
+            <h1 className="text-4xl font-bold tracking-tight text-white">
+              朱展均
+              <span className="block text-blue-500 text-2xl mt-1 font-semibold">
+                Zhan Jun Zhu
+              </span>
+            </h1>
+            <p className="text-base text-neutral-400">
+              創新就是解決問題
+            </p>
+          </div>
+
+          {/* 標籤 */}
+          <div className="flex flex-wrap gap-2">
+            {["工程師", "教育關注者"].map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1 rounded-full text-xs font-medium bg-neutral-900 text-neutral-300 border border-neutral-800"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* 社群圖示 */}
+          <div className="pt-2 flex items-center gap-3">
+            {socialLinks.map((item) => (
+              <a
+                key={item.name}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.name}
+                className="p-2.5 rounded-full text-neutral-400 hover:text-white bg-neutral-900/60 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 transition duration-200"
+              >
+                {item.icon}
+              </a>
+            ))}
+          </div>
         </div>
 
-        {/* 技能 / 領域標籤 */}
-        <div className="flex flex-wrap gap-2">
-          {["SQL", "PowerBI", "Self-learning", "Programming", "Data Analysis"].map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 rounded-full text-xs font-medium bg-neutral-900 text-neutral-300 border border-neutral-800"
-            >
-              {tech}
-            </span>
-          ))}
+        {/* 中欄：個人照片 */}
+        <div className="md:col-span-4 flex justify-center">
+          <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full overflow-hidden border border-neutral-800 bg-neutral-900/50 shadow-2xl">
+            <Image
+              src="/profile_picture.jpg"
+              alt="朱展均"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
 
-        {/* 專案 / 導航卡片區塊 */}
-        <div className="grid gap-4 sm:grid-cols-2 pt-4">
+        {/* 右欄：導航卡片 (About Me → Life → Publication) */}
+        <div className="md:col-span-4 flex flex-col gap-4">
           <Link
-            href="/project-showcase"
+            href="/about-me"
             className="group p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-700 transition duration-200"
           >
-            <h2 className="text-lg font-semibold text-white mb-1 group-hover:text-blue-400 transition">
-              Project Showcase →
+            <h2 className="text-base font-semibold text-white mb-1 group-hover:text-blue-400 transition">
+              About Me →
             </h2>
-            <p className="text-sm text-neutral-400">
-              Explore my projects and technical work.
+            <p className="text-xs text-neutral-400">
+              Background, experience, and passions.
+            </p>
+          </Link>
+
+          <Link
+            href="/life"
+            className="group p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-700 transition duration-200"
+          >
+            <h2 className="text-base font-semibold text-white mb-1 group-hover:text-blue-400 transition">
+              Life →
+            </h2>
+            <p className="text-xs text-neutral-400">
+              Personal reflections, side projects, and daily notes.
             </p>
           </Link>
 
@@ -97,43 +144,14 @@ export default function Home() {
             href="/publication"
             className="group p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-700 transition duration-200"
           >
-            <h2 className="text-lg font-semibold text-white mb-1 group-hover:text-blue-400 transition">
+            <h2 className="text-base font-semibold text-white mb-1 group-hover:text-blue-400 transition">
               Publication →
             </h2>
-            <p className="text-sm text-neutral-400">
+            <p className="text-xs text-neutral-400">
               Browse academic contributions and papers.
             </p>
           </Link>
-
-          <Link
-            href="/about-me"
-            className="group p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-700 transition duration-200 sm:col-span-2"
-          >
-            <h2 className="text-lg font-semibold text-white mb-1 group-hover:text-blue-400 transition">
-              About Me →
-            </h2>
-            <p className="text-sm text-neutral-400">
-              Background, experience, and passions.
-            </p>
-          </Link>
         </div>
-
-        {/* --- 底部社群連結 Icon 區塊 --- */}
-        <div className="pt-6 border-t border-neutral-800/80 flex items-center justify-center gap-4">
-          {socialLinks.map((item) => (
-            <a
-              key={item.name}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={item.name}
-              className="p-3 rounded-full text-neutral-400 hover:text-white bg-neutral-900/50 hover:bg-neutral-800 border border-neutral-800/80 hover:border-neutral-700 transition duration-200"
-            >
-              {item.icon}
-            </a>
-          ))}
-        </div>
-
       </div>
     </main>
   );

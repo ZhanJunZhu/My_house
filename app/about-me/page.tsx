@@ -34,10 +34,10 @@ const experiences: Experience[] = [
   },
   {
     id: 2,
-    role: "MLCC Curing / Plating Process Engineer)",
+    role: "MLCC Curing / Plating Process Engineer",
     organization: "YAEGO",
     period: "Previous Experience",
-    description: "MLCC surface treatment。",
+    description: "MLCC surface treatment",
     points: [
       "Established SOP and implemented OCAP for process excursions",
       "Optimized process parameters using DOE to enhance process window and yield",
@@ -60,7 +60,7 @@ const educations: Education[] = [
     school: "National Taiwan University of Science and Technology (NTUST)",
     major: "Chemical Engineering",
     period: "Undergraduate",
-    details: "Solid engineering foundation in chemical unit operations, transport phenomena, and materials chemistry。",
+    details: "Solid engineering foundation in chemical unit operations, transport phenomena, and materials chemistry.",
   },
 ];
 
@@ -185,27 +185,6 @@ export default function AboutPage() {
               )}
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* 底部行動呼籲 / 快速跳轉 */}
-      <section className="p-6 rounded-2xl border border-neutral-800/80 bg-neutral-900/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="text-center sm:text-left">
-          <h3 className="text-sm font-semibold text-neutral-200">了解更多學術著作與作品</h3>
-        </div>
-        <div className="flex gap-3 text-xs font-medium">
-          <Link
-            href="/publication"
-            className="px-4 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 transition"
-          >
-            Publications →
-          </Link>
-          <Link
-            href="/project-showcase"
-            className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition"
-          >
-            Projects →
-          </Link>
         </div>
       </section>
     </main>
