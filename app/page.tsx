@@ -61,20 +61,20 @@ export default function Home() {
         {/* 左欄：個人資訊 */}
         <div className="md:col-span-4 space-y-6">
           <div className="space-y-2">
-            <h1 className="text-4xl font-bold tracking-tight text-white">
-              朱展均
-              <span className="block text-blue-500 text-2xl mt-1 font-semibold">
-                Zhan Jun Zhu
+            <h1 className="text-5xl font-bold tracking-tight text-white">
+              歡迎來到展均的個人小窩🥳
+              <span className="block text-blue-500 text-xl mt-10 font-semibold">
+                在這裡你可以更加認識我，歡迎透過下列社群與我聯繫
               </span>
             </h1>
-            <p className="text-base text-neutral-400">
+            <p className="text-base text-amber-600 mt-10">
               創新就是解決問題
             </p>
           </div>
 
           {/* 標籤 */}
           <div className="flex flex-wrap gap-2">
-            {["工程師", "教育關注者"].map((tag) => (
+            {["工程師", "教育關注者", "斜槓青年"].map((tag) => (
               <span
                 key={tag}
                 className="px-3 py-1 rounded-full text-xs font-medium bg-neutral-900 text-neutral-300 border border-neutral-800"
