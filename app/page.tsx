@@ -74,7 +74,7 @@ export default function Home() {
 
           {/* 標籤 */}
           <div className="flex flex-wrap gap-2">
-            {["工程師", "教育關注者", "斜槓青年"].map((tag) => (
+            {["化工工程師", "教育關注者", "斜槓青年"].map((tag) => (
               <span
                 key={tag}
                 className="px-3 py-1 rounded-full text-xs font-medium bg-neutral-900 text-neutral-300 border border-neutral-800"
@@ -121,7 +121,7 @@ export default function Home() {
             className="group p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-700 transition duration-200"
           >
             <h2 className="text-base font-semibold text-white mb-1 group-hover:text-blue-400 transition">
-              About Me →
+              關於我 →
             </h2>
             <p className="text-xs text-neutral-400">
               Background, experience, and passions.
@@ -133,7 +133,7 @@ export default function Home() {
             className="group p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-700 transition duration-200"
           >
             <h2 className="text-base font-semibold text-white mb-1 group-hover:text-blue-400 transition">
-              Life →
+              生活 →
             </h2>
             <p className="text-xs text-neutral-400">
               Personal reflections, side projects, and daily notes.
@@ -145,7 +145,7 @@ export default function Home() {
             className="group p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900 hover:border-neutral-700 transition duration-200"
           >
             <h2 className="text-base font-semibold text-white mb-1 group-hover:text-blue-400 transition">
-              Publication →
+              發表 →
             </h2>
             <p className="text-xs text-neutral-400">
               Browse academic contributions and papers.
