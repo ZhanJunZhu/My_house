@@ -7,8 +7,6 @@ interface Experience {
   role: string;
   organization: string;
   period: string;
-  description: string;
-  points: string[];
 }
 
 interface Education {
@@ -18,64 +16,63 @@ interface Education {
   major: string;
   period: string;
   details?: string;
+  logoUrl?: string;
 }
 
 const experiences: Experience[] = [
   {
     id: 1,
-    role: "EUV mask Process Engineer",
-    organization: "TSMC",
+    role: "光罩製程工程師",
+    organization: "TSMC (台積電)",
     period: "Current Position",
-    description: "EUV mask defect inspection",
-    points: [
-      "Streamlined routine engineering analysis efficiency through data visualization in Power BI",
-      "Integrated process data across internal systems using SQL to establish real-time monitoring indicators",
-    ],
   },
   {
     id: 2,
-    role: "MLCC Curing / Plating Process Engineer",
-    organization: "YAEGO",
+    role: "MLCC 燒附/電鍍製程工程師",
+    organization: "YAEGO (國巨)",
     period: "Previous Experience",
-    description: "MLCC surface treatment",
-    points: [
-      "Established SOP and implemented OCAP for process excursions",
-      "Optimized process parameters using DOE to enhance process window and yield",
-    ],
+  },
+  {
+    id: 3,
+    role: "LCM 研發工程師",
+    organization: "Innolux (群創光電)",
+    period: "Previous Experience",
   },
 ];
 
 const educations: Education[] = [
   {
     id: 1,
-    degree: "Master degree in Chemical Engineering",
-    school: "National Taiwan University of Science and Technology (NTUST)",
-    major: "Chemical Engineering",
+    degree: "碩士",
+    school: "國立台灣科技大學",
+    major: "化學工程系",
     period: "Graduate School",
-    details: "Focused on first-principles Density Functional Theory (DFT) calculations to analyze material surface reactions and gas-sensing mechanisms",
+    details: "第一原理計算\n催化反應\n材料表面行為",
+    logoUrl: "/lab-logo.png",
   },
   {
     id: 2,
-    degree: "Bachelor degree in Chemical Engineering",
-    school: "National Taiwan University of Science and Technology (NTUST)",
-    major: "Chemical Engineering",
+    degree: "大學",
+    school: "國立台灣科技大學",
+    major: "化學工程系",
     period: "Undergraduate",
-    details: "Solid engineering foundation in chemical unit operations, transport phenomena, and materials chemistry.",
+    details: "動力學\n熱力學\n量子化學",
+    logoUrl: "/ntust-logo.jpg",
   },
 ];
 
 const skillCategories = [
   {
-    category: "Data Automation",
+    category: "資料分析",
     skills: ["SQL", "Power BI", "Python", "Linux"],
   },
   {
-    category: "Computational Chemistry",
+    category: "計算化學",
     skills: ["VASP", "ADF", "Gaussian", "Siesta", "Conquest"],
   },
   {
-    category: "Domain Expertise",
-    skills: ["EUV Mask", "MLCC Plating", "MLCC Curing"],
+    category: "產業經歷",
+    skills: ["光罩缺陷檢驗", "MLCC 燒附/電鍍", "LCM 膠材/防爆膜"],
   },
 ];
 
@@ -91,22 +88,22 @@ export default function AboutPage() {
           ← Back to Home
         </Link>
 
-        <h1 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight">About Me</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight">內心嚮往著自由的實踐家</h1>
         <p className="text-neutral-400 text-base leading-relaxed">
-          解決問題就是創新最好的定義
+          沒有什麼能困住你，唯一的是你自己
         </p>
       </div>
 
       {/* 核心專業領域標籤 */}
       <section className="space-y-4">
-        <h2 className="text-xl font-semibold text-neutral-200">Skills & Toolsets</h2>
+        <h2 className="text-xl font-semibold text-neutral-200">專長</h2>
         <div className="grid gap-4 sm:grid-cols-3">
           {skillCategories.map((group) => (
             <div 
-              key={group.category}
+              key={group.category} 
               className="p-5 rounded-2xl border border-neutral-800 bg-neutral-900/40 space-y-3"
             >
-              <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider">
+              <h3 className="text-sm font-semibold text-white-400 uppercase tracking-wider">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-1.5">
@@ -126,34 +123,22 @@ export default function AboutPage() {
 
       {/* 工作與實務經歷 */}
       <section className="space-y-6">
-        <h2 className="text-xl font-semibold text-neutral-200">Professional Experience</h2>
+        <h2 className="text-xl font-semibold text-neutral-200">職涯經驗</h2>
         <div className="space-y-4">
           {experiences.map((exp) => (
             <div
               key={exp.id}
-              className="p-6 md:p-7 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-neutral-700 hover:bg-neutral-900/60 transition duration-200 space-y-4"
+              className="p-6 md:p-7 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-neutral-700 hover:bg-neutral-900/60 transition duration-200"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-neutral-800/80 pb-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
                   <h3 className="text-lg font-bold text-neutral-100">{exp.role}</h3>
-                  <p className="text-sm text-neutral-400">{exp.organization}</p>
+                  <p className="text-sm text-neutral-400 mt-0.5">{exp.organization}</p>
                 </div>
                 <span className="text-xs text-neutral-400 bg-neutral-800/80 px-3 py-1 rounded-full w-fit">
                   {exp.period}
                 </span>
               </div>
-
-              <p className="text-sm text-neutral-300 leading-relaxed">
-                {exp.description}
-              </p>
-
-              <ul className="space-y-1.5 list-disc list-inside text-xs sm:text-sm text-neutral-400">
-                {exp.points.map((point, idx) => (
-                  <li key={idx} className="leading-snug">
-                    <span className="text-neutral-300">{point}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
@@ -161,26 +146,42 @@ export default function AboutPage() {
 
       {/* 學歷與研究背景 */}
       <section className="space-y-6">
-        <h2 className="text-xl font-semibold text-neutral-200">Education & Academic Background</h2>
+        <h2 className="text-xl font-semibold text-neutral-200">學歷</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {educations.map((edu) => (
             <div
               key={edu.id}
-              className="p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 space-y-3 flex flex-col justify-between"
+              className="p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 space-y-4 flex flex-col justify-between"
             >
-              <div>
-                <span className="text-xs font-semibold text-blue-400 tracking-wide uppercase">
-                  {edu.period}
-                </span>
-                <h3 className="text-base font-bold text-neutral-100 mt-1">
-                  {edu.degree}
-                </h3>
-                <p className="text-sm text-neutral-400 mt-0.5">{edu.school}</p>
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-xl font-bold text-neutral-100">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-sm text-neutral-400 mt-1">{edu.school}</p>
+                </div>
+
+                <div className="w-14 h-14 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
+                  {edu.logoUrl ? (
+                    <img 
+                      src={edu.logoUrl} 
+                      alt={edu.school} 
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <span className="text-xs text-neutral-700 font-bold">臺科大</span>
+                  )}
+                </div>
               </div>
 
               {edu.details && (
                 <p className="text-xs text-neutral-400 leading-relaxed border-t border-neutral-800/80 pt-3">
-                  {edu.details}
+                  {edu.details.split('\n').map((line, idx, arr) => (
+                    <span key={idx}>
+                      {line}
+                      {idx !== arr.length - 1 && <br />}
+                    </span>
+                  ))}
                 </p>
               )}
             </div>
