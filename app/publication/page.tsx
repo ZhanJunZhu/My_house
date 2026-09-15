@@ -84,9 +84,6 @@ export default function PublicationPage() {
         </Link>
 
         <h1 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight">Publications</h1>
-        <p className="text-neutral-400 text-base">
-          Browse published works and conference presentations.
-        </p>
       </div>
 
       {/* 論文列表區塊 */}

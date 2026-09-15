@@ -48,7 +48,7 @@ const educations: Education[] = [
     major: "化學工程系",
     period: "Graduate School",
     details: "第一原理計算\n催化反應\n材料表面行為",
-    logoUrl: "/lab-logo.png",
+    logoUrl: "/ntust-logo.jpg",
   },
   {
     id: 2,
@@ -89,7 +89,7 @@ export default function AboutPage() {
         </Link>
 
         <h1 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight">內心嚮往著自由的實踐家</h1>
-        <p className="text-neutral-400 text-base leading-relaxed">
+        <p className="text-zinc-400 text-base leading-relaxed">
           沒有什麼能困住你，唯一的是你自己
         </p>
       </div>
