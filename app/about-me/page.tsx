@@ -7,6 +7,7 @@ interface Experience {
   role: string;
   organization: string;
   period: string;
+  logoUrl?: string; // 補上型別定義
 }
 
 interface Education {
@@ -25,18 +26,21 @@ const experiences: Experience[] = [
     role: "光罩製程工程師",
     organization: "TSMC (台積電)",
     period: "Current Position",
+    logoUrl: "/tsmc-logo.svg", // 請替換為 public 資料夾內的實際檔名
   },
   {
     id: 2,
     role: "MLCC 燒附/電鍍製程工程師",
-    organization: "YAEGO (國巨)",
+    organization: "YAGEO (國巨)",
     period: "Previous Experience",
+    logoUrl: "/yageo-logo.webp", // 請替換為 public 資料夾內的實際檔名
   },
   {
     id: 3,
     role: "LCM 研發工程師",
     organization: "Innolux (群創光電)",
     period: "Previous Experience",
+    logoUrl: "/innolux-logo.png", // 請替換為 public 資料夾內的實際檔名
   },
 ];
 
@@ -103,7 +107,7 @@ export default function AboutPage() {
               key={group.category} 
               className="p-5 rounded-2xl border border-neutral-800 bg-neutral-900/40 space-y-3"
             >
-              <h3 className="text-sm font-semibold text-white-400 uppercase tracking-wider">
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-1.5">
@@ -128,17 +132,39 @@ export default function AboutPage() {
           {experiences.map((exp) => (
             <div
               key={exp.id}
-              className="p-6 md:p-7 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-neutral-700 hover:bg-neutral-900/60 transition duration-200"
+              className="p-6 md:p-7 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:border-neutral-700 hover:bg-neutral-900/60 transition duration-200 flex items-center justify-between gap-4"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <div>
-                  <h3 className="text-lg font-bold text-neutral-100">{exp.role}</h3>
-                  <p className="text-sm text-neutral-400 mt-0.5">{exp.organization}</p>
+              <div className="flex items-center gap-4 min-w-0">
+                {/* 企業 Logo 區塊 */}
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
+                  {exp.logoUrl ? (
+                    <img 
+                      src={exp.logoUrl} 
+                      alt={exp.organization} 
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <span className="text-[10px] text-neutral-700 font-bold text-center leading-tight">
+                      {exp.organization.split(' ')[0]}
+                    </span>
+                  )}
                 </div>
-                <span className="text-xs text-neutral-400 bg-neutral-800/80 px-3 py-1 rounded-full w-fit">
-                  {exp.period}
-                </span>
+
+                {/* 職位與機構資訊 */}
+                <div className="min-w-0">
+                  <h3 className="text-base md:text-lg font-bold text-neutral-100 truncate">
+                    {exp.role}
+                  </h3>
+                  <p className="text-xs md:text-sm text-neutral-400 mt-0.5 truncate">
+                    {exp.organization}
+                  </p>
+                </div>
               </div>
+
+              {/* 在職期間標籤 */}
+              <span className="text-xs text-neutral-400 bg-neutral-800/80 px-3 py-1 rounded-full shrink-0 whitespace-nowrap">
+                {exp.period}
+              </span>
             </div>
           ))}
         </div>
